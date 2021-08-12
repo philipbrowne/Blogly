@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {%block title%}{{user.full_name}}{% endblock %} {% block content %} <div id="username">
+    <h1>{{user.full_name}}</h1>
+</div> {% if user.image_url %} <div id="userimage">
+    <img src="{{user.image_url}}" alt="" class="user_img"> {% else %} <img
+        src="https://randomuser.me/api/portraits/lego/1.jpg" alt="" class="user_img"> {% endif %} <div id="userbuttons">
+        <a href="./{{user.id}}/edit"><button class="btn btn-primary">Edit</button></a>
+        <form action="./{{user.id}}/delete" method="POST"><button class="btn btn-danger">Delete</button></form>
+    </div>
+</div>
+<div id="return"><a href="/users"><button class="btn btn-success">Return to Users</button></a></div> {% endblock %}
