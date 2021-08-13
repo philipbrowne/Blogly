@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {%block title%}{{post.title}}{% endblock %} {% block content %}
+<h1 class="display">{{post.title}}</h1>
+<small><b>{{post.date}}</b></small>
+<p class="mt-1">{{post.content}}</p>
+<div><small><b><i>By {{user.full_name}}</i></b></small><img src="{{user.image_url}}" class="user-icon"></div>
+<div id="postbuttons" class="mt-2">
+    <a href="/users/{{user.id}}"><button class="btn btn-outline-primary">Cancel</button></a>
+    <a href="./{{post.id}}/edit"><button class="btn btn-primary">Edit</button></a>
+    <form action="./{{post.id}}/delete" method="POST"><button class="btn btn-danger">Delete</button></form>
+</div>
+{% endblock %}
+

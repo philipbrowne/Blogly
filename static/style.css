@@ -10,22 +10,33 @@ body {
   margin: 0;
 }
 
+#main {
+  display: flex;
+  flex-direction: column;
+}
+
 .user_img {
   max-width: 80px;
 }
 
-#username {
-  display: flex;
-}
-
-#userimage {
-  display: flex;
+.user-icon {
+  max-width: 30px;
 }
 
 #userbuttons {
+  display: flex;
   margin-top: 0.5rem;
 }
 
-#return {
-  margin-top: 0.5rem;
+#contain {
+  display: flex;
+  flex-direction: column;
+}
+
+.post {
+  list-style-type: none;
+}
+
+#postbuttons {
+  display: flex;
 }
