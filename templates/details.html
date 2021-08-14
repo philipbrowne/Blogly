@@ -1,30 +1,22 @@
-{% extends 'base.html' %} {%block title%}{{user.full_name}}{% endblock %} {% block content %} 
-<div id=main>
-<div id="username">
-    <h1>{{user.full_name}}</h1>
-</div> {% if user.image_url %} <div id="userimage">
-    
-    <img src="{{user.image_url}}" alt="" class="user_img"> {% else %} <img
-        src="https://randomuser.me/api/portraits/lego/1.jpg" alt="" class="user_img">
-         
-        {% endif %} 
-        <div id="userbuttons">
+{% extends 'base.html' %} {%block title%}{{user.full_name}}{% endblock %} {% block content %} <div id=main>
+    <div id="username">
+        <h1>{{user.full_name}}</h1>
+    </div> {% if user.image_url %} <div id="userimage">
+        <img src="{{user.image_url}}" alt="" class="user_img"> {% else %} <img
+            src="https://randomuser.me/api/portraits/lego/1.jpg" alt="" class="user_img"> {% endif %} <div
+            id="userbuttons">
             <a href="./{{user.id}}/edit"><button class="btn btn-primary">Edit</button></a>
             <form action="./{{user.id}}/delete" method="POST"><button class="btn btn-danger">Delete</button></form>
-        </div>
-        
-        {% if user.posts %}
-        <div class="mt-1">
-        <h2>Posts</h2>
-            <ul>
-        {% for post in user.posts  %}
-            <a href="../posts/{{post.id}}"><li class="post">{{post.title}}</a><br>
-            <small>{{post.date}}</small></li>
-        {% endfor %}
+        </div> {% if user.posts %} <div class="mt-1">
+            <h2>Posts</h2>
+            <ul> {% for post in user.posts %} <a href="../posts/{{post.id}}">
+                    <li class="post">{{post.title}}
+                </a><br>
+                <small>{{post.date}}</small></li> {% endfor %}
             </ul>
-        </div>
-        {% endif %}
-</div>
-<div id="newpost" class="mt-1"><a href="/users/{{user.id}}/posts/new"><button class="btn btn-primary">Add Post</button></a></div>
-<div id="return" class="mt-1"><a href="/users"><button class="btn btn-success">Return to Users</button></a></div> 
+        </div> {% endif %}
+    </div>
+    <div id="newpost" class="mt-1"><a href="/users/{{user.id}}/posts/new"><button class="btn btn-primary">Add
+                Post</button></a></div>
+    <div id="return" class="mt-1"><a href="/users"><button class="btn btn-success">Return to Users</button></a></div>
 </div>{% endblock %}

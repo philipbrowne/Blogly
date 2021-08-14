@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import func
+from sqlalchemy.sql import func, asc, desc
 import datetime
+from sqlalchemy import asc, desc
 
 """Models for Blogly."""
 
@@ -39,7 +40,6 @@ class Post(db.Model):
     title = db.Column(db.String(50), nullable=False)
     content = db.Column(db.String(5000), nullable=False, default=None)
     created_at = db.Column(db.DateTime(timezone=True), default=datetime.datetime.now)
-    created_date = db.Column(db.Date, default=datetime.date.today())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id', onupdate='CASCADE', ondelete='CASCADE'))
 
     user = db.relationship('User', backref='posts')

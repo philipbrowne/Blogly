@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {%block title%}Home{% endblock %} {% block content %} {% if posts %} <div class="container">
+    <div class="mt-1">
+        <h1 class="display-5">Blogly Recent Posts</h1> {% for post in posts %} <div class="my-2" id="post-{{post.id}}">
+            <span><a href="../posts/{{post.id}}">{{post.title}}</a></span><br>
+            <span>{{post.content}}</span><br>
+            <small>By {{post.user.full_name}} on {{post.date}}</small></li>
+        </div> {% endfor %}
+    </div>
+    <div><a href="/users"><button class="btn btn-success">User List</button></a><a href="./users/new"><br><button
+                id="newuser" class="btn btn-primary mt-1">Add User</button></a></div>
+</div> {% endif %} {% endblock %}

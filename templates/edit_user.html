@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {%block title%}Edit a user{% endblock %} {% block content %} <h1>Edit a user</h1>
 <form action="" method="POST">
-    <b><label for="first_name">First Name</label></b><br><input type="text" name="first_name" placeholder="First Name"
-        id="first_name" size="50" /><br>
-    <b></b><label for="last_name">Last Name</label></b><br><input type="text" name="last_name" placeholder="Last Name"
-        id="last_name" size="50" /><br>
+    <b><label for="first_name">First Name</label></b><br><input type="text" name="first_name"
+        value="{{user.first_name}}" id="first_name" size="50" /><br>
+    <b></b><label for="last_name">Last Name</label></b><br><input type="text" name="last_name"
+        value="{{user.last_name}}" id="last_name" size="50" /><br>
     <b><label for="image_url">Image URL</label></b><br>
     <input type="text" name="image_url" placeholder="Image URL" id="image_url" size="50" /><br>
     <button id="addbtn" class="btn btn-success">Save</button>
