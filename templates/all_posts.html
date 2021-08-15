@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {%block title%}Post List{% endblock %} {% block content %} <h1>All Posts</h1>
+<ul> {% for post in posts %} 
+<li><a href="./posts/{{post.id}}">{{post.title}} </a>
+<small>By {{post.user.full_name}}<img src="{{post.user.image_url}}" class="user-icon"></small></li>
+{% endfor %} </ul>
+<div>
+<div><h3>Tags for All Posts</h3>
+<div>{% for tag in tags %}
+    <span class="badge rounded-pill bg-primary"><a class="post-tag-link" href="/tags/{{tag.id}}">{{tag.name}}</a></span>
+{% endfor %}</div>
+<div class="mt-2">
+    <a href="/tags/new"><button class="btn btn-secondary">New Tag</button></a>
+    <a href="/"><button class="btn btn-success">Return Home</button></a>
+</div>
+{% endblock %}

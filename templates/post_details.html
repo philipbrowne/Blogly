@@ -3,10 +3,19 @@
 <small><b>{{post.date}}</b></small>
 <p class="mt-1">{{post.content}}</p>
 <div><small><b><i>By {{user.full_name}}</i></b></small><img src="{{user.image_url}}" class="user-icon"></div>
+{% if post.tags %}
+<div id="post-tags">
+    {% for tag in post.tags %}
+    <span class="badge rounded-pill bg-primary"><a class="post-tag-link" href="/tags/{{tag.id}}">{{tag.name}}</a></span>
+    {% endfor %}
+</div>
+{% endif %}
 <div id="postbuttons" class="mt-2">
-    <a href="/users/{{user.id}}"><button class="btn btn-outline-primary">Cancel</button></a>
-    <a href="./{{post.id}}/edit"><button class="btn btn-primary">Edit</button></a>
-    <form action="./{{post.id}}/delete" method="POST"><button class="btn btn-danger">Delete</button></form>
+    <a href="/users/{{user.id}}"><button class="btn btn-outline-primary mx-1">Cancel</button></a>
+    <a href="./{{post.id}}/edit"><button class="btn btn-primary mx-1">Edit</button></a>
+    <form action="./{{post.id}}/delete" method="POST"><button class="btn btn-danger mx-1">Delete</button></form>
+    <a href="/"><button class="btn btn-secondary mx-1">All Posts</button></a>
+    <a href="/"><button class="btn btn-success mx-1">Home</button></a>
 </div>
 {% endblock %}
 

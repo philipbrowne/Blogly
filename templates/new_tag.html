@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {%block title%}New Tag{% endblock %} {% block content %} <h1 class="display-2">New Tag</h1>
+<form action="" method="POST">
+<label for="name">Name</label>
+<input type="text" name="name" id="name" required placeholder="Enter a name for the tag" size="50"><br>
+<div>
+    {% for post in posts %}
+    <input type="checkbox" id="{{post.id}}" name="{{post.id}}" value="{{post.id}}">
+    <label for="{{post.id}}">{{post.title}}</label><br>
+    {% endfor %} 
+ </div>
+<div class="my-2">
+<a class="btn btn-outline-primary" href="/tags" role="button">Cancel</a>
+<button id="addbtn" class="btn btn-success">Add</button>
+</div>
+</form>
+{% endblock %}

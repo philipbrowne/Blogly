@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {%block title%}{{tag.name}}{% endblock %} {% block content %} 
+<h1>{{tag.name}}</h1>
+{% if tag.posts | length > 0 %}
+<ul>  
+{% for post in tag.posts  %}
+<li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+<h5>No Posts Currently Tagged as {{tag.name}}</h5>
+{% endif %}
+<div id="postbuttons" class="mt-2">
+    <a href="/tags"><button class="btn btn-outline-primary mx-2">Return to Tags</button></a>
+    <a href="./{{tag.id}}/edit"><button class="btn btn-primary mx-2">Edit</button></a>
+    <form action="./{{tag.id}}/delete" method="POST"><button class="btn btn-danger">Delete</button></form>
+</div>
+{% endblock %}

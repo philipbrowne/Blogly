@@ -10,6 +10,14 @@ body {
   margin: 0;
 }
 
+.post-tag-link{
+  text-decoration: none;
+  color: white;
+}
+.post-tag-link:hover{
+  color: yellow;
+}
+
 #main {
   display: flex;
   flex-direction: column;
@@ -20,7 +28,7 @@ body {
 }
 
 .user-icon {
-  max-width: 30px;
+  max-width: 20px;
 }
 
 #userbuttons {

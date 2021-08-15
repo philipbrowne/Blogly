@@ -10,6 +10,13 @@
         <textarea class="form-control" id="content" name="content" placeholder="Post Content" rows="3" maxlength="5000"
             required></textarea>
     </div>
+    <div>
+       {% for tag in tags %}
+       <input type="checkbox" id="{{tag.id}}" name="{{tag.id}}" value="{{tag.id}}">
+       <label for="{{tag.id}}">{{tag.name}}</label><br>
+       {% endfor %} 
+    </div>
+
     <a class="btn btn-info text-light" href="/users/{{user.id}}" role="button">Cancel</a>
     <button type="submit" class="btn btn-success">Add</button>
 </form> {% endblock %}
